@@ -35,28 +35,16 @@ Gimg是[zimg](https://github.com/buaazp/zimg)的golang版本。
 ## 安装
 - - -
 	go get github.com/gographics/imagick/imagick
-	go get code.google.com/p/gcfg
+	go get github.com/scalingdata/gcfg
 	go get github.com/garyburd/redigo/redis
-	go get github.com/Leon2012/gimg
-	cd $GOPATH/src/github.com/Leon2012/gimg/build/
+	go github.com/DTXLink/gimg
+	cd $GOPATH/src/github.com/DTXLink/gimg/build/
 	go build -o gimg
 	./gimg --config=./conf/config.ini
 	
 	
 ## Demo
 ---
-[http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93](http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93)
-
-[http://182.92.189.64:8081/info?md5=a258607b53444f32208e864f44a06b93](http://182.92.189.64:8081/info?md5=a258607b53444f32208e864f44a06b93)
-
-[http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?w=100&h=100&x=-1&y=-1](http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?w=100&h=100&x=-1&y=-1)
-
-[http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?r=45](http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?r=45)
-
-[http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?g=1](http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?g=1)
-
-[http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?f=png](http://182.92.189.64:8081/a258607b53444f32208e864f44a06b93?f=png)
-
 	
 	
 	
