@@ -1,7 +1,7 @@
 package gimg
 
 import (
-	"code.google.com/p/gcfg"
+	"github.com/scalingdata/gcfg"
 	_ "errors"
 	_ "strings"
 )
