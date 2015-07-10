@@ -22,9 +22,11 @@ type ZHttpd struct {
 }
 
 func NewHttpd(c *ZContext) *ZHttpd {
-	return &ZHttpd{context: c,
+	return &ZHttpd {
+		context:      c,
 		storage:      genStorageHandler(c),
-		contentTypes: genContentTypes()}
+		contentTypes: genContentTypes()
+	}
 }
 
 func genStorageHandler(c *ZContext) ZStorage {
@@ -50,7 +52,6 @@ func genContentTypes() map[string]string {
 	types["png"] = "image/png"
 	types["gif"] = "image/gif"
 	types["webp"] = "image/webp"
-
 	return types
 }
 
@@ -59,6 +60,10 @@ func (z *ZHttpd) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	z.request = r
 	path := r.URL.Path
 	method := r.Method
+
+	//	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	//		z.doDefault()
+	//	})
 
 	if "GET" == method {
 		if path == "/" {
@@ -101,16 +106,14 @@ func (z *ZHttpd) doDefault() {
     </head>
     <body>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-
             <label for="field1">file:</label>
             <input name="upload_file" type="file" />
             <input type="submit"></input>
-
         </form>
     </body>
 </html>`
-	fmt.Fprint(z.writer, html)
 
+	fmt.Fprint(z.writer, html)
 }
 
 func (z *ZHttpd) doInfo() {

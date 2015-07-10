@@ -1,7 +1,6 @@
 package gimg
 
 import (
-	_ "fmt"
 	"github.com/gographics/imagick/imagick"
 )
 
