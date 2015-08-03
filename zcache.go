@@ -56,7 +56,6 @@ func (z *ZCache) FindCacheBin(key string) ([]byte, error) {
 	} else {
 		return it.Value, nil
 	}
-
 }
 
 func (z *ZCache) SetCacheBin(k string, v []byte) error {
