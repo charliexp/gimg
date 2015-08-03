@@ -25,7 +25,7 @@ func NewHttpd(c *ZContext) *ZHttpd {
 	return &ZHttpd {
 		context:      c,
 		storage:      genStorageHandler(c),
-		contentTypes: genContentTypes()
+		contentTypes: genContentTypes(),
 	}
 }
 

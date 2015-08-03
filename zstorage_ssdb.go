@@ -2,7 +2,7 @@ package gimg
 
 import (
 	"fmt"
-	//"github.com/gographics/imagick/imagick"
+	"github.com/gographics/imagick/imagick"
 )
 
 type ZSSDBStorage struct {
