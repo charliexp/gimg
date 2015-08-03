@@ -1,4 +1,4 @@
-package gimg
+package main
 
 import (
 	"bytes"
@@ -107,7 +107,7 @@ func (z *ZHttpd) doDefault() {
     <body>
         <form action="/upload" method="POST" enctype="multipart/form-data">
             <label for="field1">file:</label>
-            <input name="upload_file" type="file" />
+            <input name="userfile" type="file" />
             <input type="submit"></input>
         </form>
     </body>

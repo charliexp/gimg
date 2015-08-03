@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	zimg "github.com/dtxlink/gimg"
 	_ "github.com/bradfitz/gomemcache/memcache"
 	"net/http"
 	"os"
@@ -13,7 +12,7 @@ import (
 )
 
 var cfgFile string
-var zContext *zimg.ZContext
+var zContext *ZContext
 
 func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
@@ -34,7 +33,7 @@ func main() {
 		os.Exit(-1)
 	}
 
-	zContext, err := zimg.NewContext(cfgFile)
+	zContext, err := NewContext(cfgFile)
 	checkError(err)
 	defer zContext.Release()
 
@@ -43,13 +42,12 @@ func main() {
 	addr := fmt.Sprintf("%s:%d", zContext.Config.System.Host, zContext.Config.System.Port)
 	zContext.Logger.Info("server start run :  %s", addr)
 
-	zHttpd := zimg.NewHttpd(zContext)
+	zHttpd := NewHttpd(zContext)
 	err = http.ListenAndServe(addr, zHttpd)
 	if err != nil {
 		zContext.Logger.Error("error : %s", err.Error())
 	}
-
-	//signalHandle()
+	HandleSignal(InitSignal())
 }
 
 // exists returns whether the given file or directory exists or not
@@ -76,20 +74,3 @@ func checkError(err error) {
 		os.Exit(-2)
 	}
 }
-
-// func signalHandle() {
-// 	// Handle SIGINT and SIGTERM.
-// 	ch := make(chan os.Signal, 1)
-// 	over := make(chan bool, 1)
-// 	signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
-
-// 	go func() {
-// 		sig := <-ch
-// 		//zContext.Logger.Info(sig)
-// 		over <- true
-// 	}()
-
-// 	//zContext.Logger.Info(<-over)
-
-// 	zContext.Logger.Info("server stop!!!")
-// }

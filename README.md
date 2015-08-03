@@ -37,11 +37,10 @@ Gimg是[zimg](https://github.com/buaazp/zimg)的golang版本。
 	go get github.com/gographics/imagick/imagick
 	go get github.com/scalingdata/gcfg
 	go get github.com/garyburd/redigo/redis
-	go github.com/DTXLink/gimg
-	cd $GOPATH/src/github.com/DTXLink/gimg/build/
+	go github.com/dtxlink/gimg
+	cd $GOPATH/src/github.com/dtxlink/gimg/build/
 	go build -o gimg
 	./gimg --config=./conf/config.ini
-	
 	
 ## Demo
 ---
